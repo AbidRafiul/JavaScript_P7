@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Sederhana jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .menu-toggle {
+      background-color: #070707;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      width: 150px;
+    }
+    .menu {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background: #ecf0f1;
+      width: 150px;
+    }
+    .menu li {
+      padding: 10px;
+      border-bottom: 1px solid #bdc3c7;
+      cursor: pointer;
+    }
+    .menu li:hover {
+      background: #dcdde1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-toggle">Menu</div>
+<ul class="menu">
+  <li>Beranda</li>
+  <li>Profil</li>
+  <li>Galeri</li>
+  <li>Kontak</li>
+</ul>
+
+<script>
+  $(document).ready(function(){
+    $(".menu-toggle").hover(function(){
+      $(".menu").slideToggle("fast");
+    });
+  });
+</script>
+
+</body>
+</html>

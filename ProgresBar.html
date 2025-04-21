@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download Dialog dengan Progress Bar</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <style>
+    #dialog {
+      display: none;
+    }
+    #startDownload {
+      padding: 10px 20px;
+      background-color: #000000;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #startDownload:hover {
+      background-color: #000000;
+    }
+    #progressbar {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+
+<button id="startDownload">Mulai Download</button>
+
+
+<div id="dialog" title="Sedang Mengunduh...">
+  <p>Harap tunggu, file sedang diunduh.</p>
+  <div id="progressbar"></div>
+</div>
+
+
+<script>
+  $(function() {
+    $("#progressbar").progressbar({ value: 0 });
+
+    $("#dialog").dialog({
+      autoOpen: false,
+      modal: true,
+      closeOnEscape: false,
+      draggable: false,
+      resizable: false
+    });
+
+    $("#startDownload").click(function() {
+      $("#dialog").dialog("open");
+      var progress = 0;
+
+      function updateProgress() {
+        progress += 1;
+        $("#progressbar").progressbar("value", progress);
+        
+        if (progress < 100) {
+          setTimeout(updateProgress, 50); // kecepatan progres
+        } else {
+          setTimeout(function() {
+            $("#dialog").dialog("close");
+            alert("Download selesai!");
+          }, 500);
+        }
+      }
+
+      updateProgress();
+    });
+  });
+</script>
+
+</body>
+</html>

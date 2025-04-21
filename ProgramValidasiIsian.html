@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> Validasi Masukan</title>
+    </head>
+    <body>
+        <script language = "Javascript">
+            function cekNama(form) {
+                if ("form.elements[0].value == ") {
+                    alert("Nama tidak boleh kosong !");
+                    form.elements[0].focus();
+                    form.elements[0].select();
+                    return false;
+            }
+            alert("Terima Kasih , "+
+            "form.element[0].value");
+            return true;
+        }
+        </script>
+    </body>
+</html>
