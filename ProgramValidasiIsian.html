@@ -1,20 +1,27 @@
-<html>
-    <head>
-        <title> Validasi Masukan</title>
-    </head>
-    <body>
-        <script language = "Javascript">
-            function cekNama(form) {
-                if ("form.elements[0].value == ") {
-                    alert("Nama tidak boleh kosong !");
-                    form.elements[0].focus();
-                    form.elements[0].select();
-                    return false;
+<HTML>
+    <HEAD>
+        <TITLE>Validasi Masukan</TITLE>
+    </HEAD>
+    <BODY>
+        <SCRIPT LANGUAGE =" Javascript">
+            function cekNama(form){
+                if(form.elements[0].value == ""){
+                    alert("Nama harus di masukkan");
+                    form.nama.focus();
+                    form.nama.select();
+                    return(false);
+                }
+                alert("Terima kasih, " + form.elements[0].value);
+                return(true);
             }
-            alert("Terima Kasih , "+
-            "form.element[0].value");
-            return true;
-        }
-        </script>
-    </body>
-</html>
+        </SCRIPT>
+        <FORM NAME =" Formku">
+            <PRE>
+                Nama : <INPUT TYPE = "TEXT"NAME = "nama"><BR>
+                    <INPUT TYPE ="button" VALUE = "Kirim" 
+                    onclick= "cekNama(this.form)"><BR>
+
+            </PRE>
+        </FORM>
+    </BODY>
+</HTML>
